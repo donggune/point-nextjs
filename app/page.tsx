@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="p-24 max-w-screen-md mx-auto">
+    <main className="p-12 max-w-screen-md mx-auto">
       <Nav />
       <section className="py-12 flex flex-col items-center text-center gap-8">
         <h1 className="text-4xl font-bold">Dalseomom</h1>
