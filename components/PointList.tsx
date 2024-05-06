@@ -1,11 +1,11 @@
 import { formatDate } from "@/lib/util";
 import { PointHistory } from "@/model/pointHistory";
 
-interface PointListProps {
+interface Props {
   pointHistory: PointHistory[];
 }
 
-export default function PointList({ pointHistory }: PointListProps) {
+export default function PointList({ pointHistory }: Props) {
   return (
     <div className="mt-10">
       {pointHistory.length === 0 ? (

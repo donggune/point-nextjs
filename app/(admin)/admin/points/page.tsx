@@ -8,6 +8,9 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
+import useSWR from "swr";
+import PointList from "@/components/PointList";
+import AllPointList from "@/components/AllPointList";
 
 const formSchema = z.object({
   username: z.string().min(3, {
@@ -19,6 +22,8 @@ const formSchema = z.object({
 });
 
 export default function PointManagementForm() {
+  const { data: userList, mutate: mutateUserList } = useSWR(`/admin/points/all`);
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -64,9 +69,9 @@ export default function PointManagementForm() {
   }
 
   return (
-    <>
+    <section className="p-12">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmitDeposit)} className="p-24 max-w-screen-md mx-auto space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmitDeposit)} className="max-w-screen-md mx-auto space-y-8">
           <FormField
             control={form.control}
             name="username"
@@ -108,6 +113,8 @@ export default function PointManagementForm() {
           </div>
         </form>
       </Form>
-    </>
+
+      {userList && <AllPointList userList={userList} />}
+    </section>
   );
 }

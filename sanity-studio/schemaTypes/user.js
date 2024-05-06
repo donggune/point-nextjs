@@ -8,5 +8,10 @@ export default {
       title: 'Username',
       type: 'string',
     },
+    {
+      name: 'availablePoints',
+      title: 'Available Points',
+      type: 'number',
+    },
   ],
 }

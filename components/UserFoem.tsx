@@ -56,7 +56,9 @@ export function UserForm() {
             )}
           />
           <div className="flex  justify-center">
-            <Button type="submit">조회</Button>
+            <Button type="submit" disabled={form.formState.isSubmitting}>
+              {form.formState.isSubmitting ? "조회중" : "조회"}
+            </Button>
           </div>
         </form>
       </Form>
