@@ -5,8 +5,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="p-12 max-w-screen-md mx-auto">
-      <Nav />
+    <main className="max-w-screen-md mx-auto">
       <section className="py-12 flex flex-col items-center text-center gap-8">
         <h1 className="text-4xl font-bold">Dalseomom</h1>
         <p className="text-2xl text-muted-foreground">{`“point” 를 확인해보세요 :)`}</p>

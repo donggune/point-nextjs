@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import SWRConfigContext from "@/context/SWRConfigContext";
+import Nav from "@/components/Nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`p-12 ${inter.className}`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <SWRConfigContext>{children}</SWRConfigContext>
+          <SWRConfigContext>
+            <Nav />
+            {children}
+          </SWRConfigContext>
         </ThemeProvider>
       </body>
     </html>

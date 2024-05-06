@@ -69,7 +69,7 @@ export default function PointManagementForm() {
   }
 
   return (
-    <section className="p-12">
+    <section>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmitDeposit)} className="max-w-screen-md mx-auto space-y-8">
           <FormField
